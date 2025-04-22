@@ -1,0 +1,87 @@
+body {
+    /* font-family: Arial, sans-serif; */
+    background-color: #c1e6d3;
+    /* font-family: "Arima", serif; */
+    font-family: "Quicksand", serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    height: 100vh;
+    margin-top: -130px;
+}
+
+form {
+    background: rgb(228, 240, 237);
+    padding: 25px;
+    margin: 0px;
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    margin-left: 30px;
+    /* margin-left: 50%; */
+    align-content: center;
+    font-size: xx-large;
+}
+
+.form_item {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.label_span {
+    color: red;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+button {
+    width: 88%;
+    margin-left: 5%;
+    /* margin-left: 20px; */
+    /* margin-right: 20px;   */
+    background-color: #40476D;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #758cab;
+    color: rgb(245, 231, 231);
+}
+
+
+/*
+below is the css for the custom text
+*/
+
+.custom-text {
+    margin-top: 0.5rem;
+    text-align: center;
+}

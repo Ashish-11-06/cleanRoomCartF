@@ -1,0 +1,199 @@
+/* General Modal Styles */
+
+.modal .ant-modal-content {
+    background-color: #f0f2f5;
+    /* Light gray background */
+    border-radius: 0;
+    /* Sharp corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    padding: 32px 72px 36px 24px;
+}
+
+
+/* Specific Modal Content Styles */
+
+.ant-modal .ant-modal-content {
+    position: relative;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    pointer-events: auto;
+    padding: 32px 72px 36px 24px;
+}
+
+
+/* Modal Title Styles */
+
+.ant-modal-confirm-title {
+    color: #4a9aea;
+    /* Blue title */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* Modal Button Container Styles */
+
+.ant-modal-confirm-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    gap: 20px;
+    padding: 0px 10px 0px 10px;
+    border-color: black;
+}
+
+
+/* Primary Button Styles (e.g., Submit) */
+
+.modal .ant-btn-primary {
+    background-color: #33905d;
+    /* Green login button */
+    border-color: #dee2dc;
+}
+
+.modal .ant-btn-primary:hover {
+    background-color: #072c19;
+    /* Darker green on hover */
+}
+
+
+/* Default Button Styles (e.g., Cancel) */
+
+.modal .ant-btn-default {
+    color: red;
+    /* Red cancel button */
+    margin-bottom: 9px;
+    margin-right: 20px;
+}
+
+
+/* Review Overlay Styles */
+
+.review-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+
+/* Review Modal Styles */
+
+.review-modal {
+    background-color: white;
+    border-radius: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+}
+
+
+/* Modal Content Styles */
+
+.modal-content {
+    position: relative;
+}
+
+
+/* Close Button Styles */
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+
+/* Required Field Indicator Styles */
+
+.required {
+    color: red;
+    margin-left: 4px;
+}
+
+
+/* Label Styles */
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* Input, Textarea, Select Styles */
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+
+/* Textarea Styles */
+
+textarea {
+    resize: vertical;
+}
+
+
+/* Submit Button Styles */
+
+.submit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* Style adjustments for the "I'm Interested" button */
+
+.interested-button-container {
+    text-align: center;
+    /* Center the button */
+    margin-top: 20px;
+    /* Add some space above the button */
+}
+
+.review-button-container {
+    text-align: center;
+    /* Center the button */
+    margin-top: 10px;
+    /* Add some space above the button */
+}

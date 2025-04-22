@@ -1,0 +1,73 @@
+.dashboard-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    background: #f4f6f9;
+    /* Light background */
+    padding: 20px;
+    /* Prevents content from sticking to edges */
+}
+
+
+/* Common card styles */
+
+.dashboard-card {
+    width: 100%;
+    /* Full width */
+    max-width: 320px;
+    /* Maximum width for consistency */
+    height: 180px;
+    /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    /* Gradient background */
+    color: white;
+    margin: 15px;
+    /* Space between cards */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Hover effect */
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Card title */
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+/* Main count inside the card */
+
+.query-count,
+.user-count {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+/* Badge styling */
+
+.ant-badge {
+    width: auto;
+    /* Auto width for badge */
+    display: flex;
+    justify-content: center;
+}

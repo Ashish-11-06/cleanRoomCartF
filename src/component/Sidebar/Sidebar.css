@@ -1,0 +1,80 @@
+.sidebar {
+    width: 20%;
+    min-width: 280px;
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    padding: 10px 20px;
+}
+
+.sidebar-title {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s;
+    background-color: #40476D;
+    margin-bottom: 2px;
+}
+
+.nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+}
+
+.nav-item:hover {
+    background-color: #555d86;
+    cursor: pointer;
+}
+
+.category-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.category-container span {
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.subcategory-list {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #ccc;
+}
+
+.subcategory-item {
+    padding: 5px 0;
+    cursor: pointer;
+    color: white;
+    /* Changed to white */
+}
+
+.subcategory-item:hover {
+    color: lightgray;
+    /* Slight hover effect for better visibility */
+}
+
+.category-container span {
+    font-size: 18px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: white;
+    /* Ensure icons are also white */
+}

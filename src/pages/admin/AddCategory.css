@@ -1,0 +1,185 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+}
+
+.add-btn {
+    background-color: #E16A54;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0px;
+    font-size: 14px;
+    margin-left: 950px;
+}
+
+.add-btn:hover {
+    background-color: #9F5255;
+}
+
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 0px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.form-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #40476D;
+    transition: 0.3s;
+}
+
+.close-icon:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+
+.save-btn {
+    background-color: #F39E60;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 0px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.save-btn:hover {
+    background-color: #E16A54;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 0px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.category-item:hover {
+    background-color: #f1f1f1;
+}
+
+.category-text {
+    font-size: 30px;
+    font-weight: 500;
+    color: #333;
+}
+
+.icon-container {
+    display: flex;
+    gap: 12px;
+}
+
+.icon {
+    font-size: 20px;
+    color: #050505;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.icon:hover {
+    color: #141414;
+}
+
+
+/* Adjusting modal styling */
+
+.ant-modal-title {
+    color: #121112;
+    font-weight: bold;
+}
+
+.ant-input,
+.ant-input-textarea {
+    border: 1px solid #a19d9d;
+    color: #141414;
+}
+
+.ant-input:focus,
+.ant-input:hover,
+.ant-input-textarea:focus,
+.ant-input-textarea:hover {
+    border-color: #b5b9bb;
+    box-shadow: 0 0 5px rgba(239, 235, 235, 0.5);
+}
+
+label {
+    color: rgb(19, 18, 18);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ant-btn-primary {
+    background-color: #F39E60;
+    border-color: #F39E60;
+    color: white;
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+    background-color: #f7f1f1;
+    border-color: #953423;
+}
+
+.ant-btn {
+    color: #0e0e0e;
+    border-color: #f6efef;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+    color: white;
+    background-color: #fffdfd;
+    border-color: #9F5255;
+}
+
+.ant-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}

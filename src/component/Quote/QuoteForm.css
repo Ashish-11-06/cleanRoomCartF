@@ -1,0 +1,84 @@
+.container-quote {
+    font-family: "Quicksand", serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    /* Explicitly set to 0 */
+}
+
+.quote-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #40476D;
+}
+
+.quote-description {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    /* Explicitly set to 0 */
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+textarea {
+    resize: none;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #007eb5;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #000;
+    /* Placeholder color remains black */
+}
+
+.quote-button {
+    background-color: #40476D;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 0;
+    /* Explicitly set to 0 */
+    cursor: pointer;
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.quote-button:hover {
+    background-color: #5c6596;
+}
+
+.form-wrapper {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+
+/* 👇 Added this to apply left and right margin to all form fields */
+
+.form-wrapper .ant-form-item {
+    margin-left: 25px;
+    margin-right: 25px;
+}
