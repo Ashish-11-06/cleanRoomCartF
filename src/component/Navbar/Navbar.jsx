@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Layout, Menu, message, Input, Button } from "antd";
+import { Layout, message, Input } from "antd";
 import { MailOutlined, PhoneOutlined, ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext.jsx";
@@ -7,6 +7,7 @@ import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import { BASE_URL } from "../../API/BaseURL";
 import SearchModal from "./SearchModal";
+import { SearchOutlined } from "@ant-design/icons";
 
 const { Header } = Layout;
 
@@ -20,6 +21,7 @@ const Navbar = () => {
     const [showModal, setShowModal] = useState(false);
     const searchInputRef = useRef(null);
     const [quoteBoxVisible, setQuoteBoxVisible] = useState(false);
+    let quoteHideTimeout = null;
 
     useEffect(() => {
         fetch(`${BASE_URL}/api/category/get`)
@@ -93,27 +95,17 @@ const Navbar = () => {
     };
 
     const handleQuoteMouseEnter = () => {
+        if (quoteHideTimeout) {
+            clearTimeout(quoteHideTimeout);
+        }
         setQuoteBoxVisible(true);
     };
 
     const handleQuoteMouseLeave = () => {
-        // Delay hiding the quote box by 2 seconds (2000 ms)
         quoteHideTimeout = setTimeout(() => {
-          setQuoteBoxVisible(false);
+            setQuoteBoxVisible(false);
         }, 2000);
-      };
-
-    const menuItems = [
-        { label: <Link to="/">Home</Link>, key: "home" },
-        ...categories.map((category) => ({
-            label: (
-                <Link to={`/category/${category._id}`} style={{ textDecoration: "none" }}>
-                    {category.name}
-                </Link>
-            ),
-            key: category._id,
-        })),
-    ];
+    };
 
     return (
         <Layout className="navbar">
@@ -132,37 +124,36 @@ const Navbar = () => {
                     >
                         Quote
                         {quoteBoxVisible && (
-    <div
-        style={{
-            position: "absolute",
-            top: "32px",
-            left: "-40px",
-            padding: "10px",
-            background: "white",
-            border: "1px solid #ccc",
-            boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
-            zIndex: 10,
-            width: "140px", // Slightly increased
-            textAlign: "center"
-        }}
-    >
-        <Link to="/quote">
-  <button
-    style={{
-      backgroundColor: "#40476D",
-      color: "white",
-      border: "none",
-      padding: "8px 12px",
-      borderRadius: "4px",
-      cursor: "pointer"
-    }}
-  >
-    Get a quick quote
-  </button>
-</Link>
-    </div>
-)}
-
+                            <div
+                                style={{
+                                    position: "absolute",
+                                    top: "32px",
+                                    left: "-40px",
+                                    padding: "10px",
+                                    background: "white",
+                                    border: "1px solid #ccc",
+                                    boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                                    zIndex: 10,
+                                    width: "140px",
+                                    textAlign: "center",
+                                }}
+                            >
+                                <Link to="/quote">
+                                    <button
+                                        style={{
+                                            backgroundColor: "#40476D",
+                                            color: "white",
+                                            border: "none",
+                                            padding: "8px 12px",
+                                            borderRadius: "4px",
+                                            cursor: "pointer",
+                                        }}
+                                    >
+                                        Get a quick quote
+                                    </button>
+                                </Link>
+                            </div>
+                        )}
                     </span>
                     <span> | </span>
                     {isLoggedIn ? (
@@ -214,30 +205,30 @@ const Navbar = () => {
                 </Link>
 
                 <div style={{ display: "flex", alignItems: "center", marginRight: "20px" }}>
-  <Input
-    id="search-input"
-    type="text"
-    placeholder="#𝘴𝘦𝘢𝘳𝘤𝘩 𝘱𝘳𝘰𝘥𝘶𝘤𝘵𝘴 𝘩𝘦𝘳𝘦"
-    value={searchTerm}
-    onChange={handleSearchChange}
-    style={{
-      width: "350px",
-      height: "40px",
-      padding: "5px",
-      color: "black", // Text color
-    }}
-    ref={searchInputRef}
-  />
-  <style>
-    {`
-      #search-input::placeholder {
-        color: black;
-        opacity: 1; /* Ensures it's visible in all browsers */
-      }
-    `}
-  </style>
+    <Input
+        id="search-input"
+        type="text"
+        placeholder="#𝘴𝘦𝘢𝘳𝘤𝘩 𝘱𝘳𝘰𝘥𝘶𝘤𝘵𝘴 𝘩𝘦𝘳𝘦"
+        value={searchTerm}
+        onChange={handleSearchChange}
+        style={{
+            width: "450px", // Increased by 100px
+            height: "40px",
+            padding: "5px",
+            color: "black",
+        }}
+        ref={searchInputRef}
+        prefix={<SearchOutlined style={{ color: "#40476D", fontSize: 18 }} />}
+    />
+    <style>
+        {`
+          #search-input::placeholder {
+            color: black;
+            opacity: 1;
+          }
+        `}
+    </style>
 </div>
-
 
                 <div className="navbar-questions">
                     <PhoneOutlined /> <span>Talk to Us ?  Call 123-456-7890 </span>
@@ -247,8 +238,7 @@ const Navbar = () => {
                 </div>
             </Header>
 
-            {/* Category Navigation */}
-            <Menu mode="horizontal" className="navbar-links" items={menuItems} />
+            {/* Removed the Category Navigation Menu here */}
 
             {/* Search Modal */}
             <SearchModal

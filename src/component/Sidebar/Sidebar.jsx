@@ -79,7 +79,7 @@ const Sidebar = () => {
                   {category.name}
                 </a>
                 <span onClick={() => toggleCategory(category._id)}>
-                  {expandedCategories.has(category._id) ? "-" : "+"}
+                  {expandedCategories.has(category._id) ? "^" : ">>"}
                 </span>
               </div>
 

@@ -24,6 +24,7 @@
     transition: background-color 0.3s;
     background-color: #40476D;
     margin-bottom: 2px;
+    border-radius: 35px;
 }
 
 .nav-item a {
