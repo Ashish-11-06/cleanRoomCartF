@@ -67,6 +67,7 @@ const Category = () => {
                   margin: "10px",
                   textAlign: "center",
                   cursor: "pointer"
+                  // kiran
                 }}
                 onClick={() => navigate(`/subcategory/${subcategory._id}`)}
               >
