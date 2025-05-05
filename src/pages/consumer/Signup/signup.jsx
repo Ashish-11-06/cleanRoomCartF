@@ -29,6 +29,27 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      message.error('Please enter a valid email address!');
+      return;
+    }
+
+    // Phone number validation (10 digits)
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(formData.phoneNumber)) {
+      message.error('Phone number must be exactly 10 digits!');
+      return;
+    }
+
+    // Zip/Postcode validation (6 digits)
+    const zipRegex = /^\d{6}$/;
+    if (!zipRegex.test(formData.zip)) {
+      message.error('Zip/Postcode must be exactly 6 digits!');
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       message.error('Passwords do not match!');
       return;

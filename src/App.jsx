@@ -31,13 +31,11 @@ import ResetPassword from "./component/ResetPassword/ResetPassword";
 import Account from "./component/account/Account";
 import AccountSettings from "./component/account/AccountSettings";
 import AddAddress from "./component/account/AddAddress";
-import AddPaymentMethod from "./component/account/AddPaymentMethod";
 import Checkout from "./component/Checkout/Checkout";
 import OrderHistory from "./component/account/OrderHistory";
-import Messages from "./component/account/Messages";
-import RecentlyViewed from "./component/account/RecentlyViewed";
 import Advertise from "./pages/admin/Advertise";
 import QuoteForm from "./component/Quote/QuoteForm";
+import ManageAdmin from "./pages/admin/ManageAdmin";
 
 
 
@@ -112,11 +110,8 @@ const App = () => {
           <Route path="/account" element={<Account />}>
                     <Route path="account-settings" element={<AccountSettings />} />
                     <Route path="addresses" element={<AddAddress />} />
-                    <Route path="payment-methods" element={<AddPaymentMethod />} />
                     <Route path="cart" element={<CartPage />} />
                     <Route path="orderHistory" element={<OrderHistory />} />
-                    <Route path="messages" element={<Messages />} />
-                    <Route path="recently-viewed" element={<RecentlyViewed />} />
 
 
                 </Route>
@@ -164,6 +159,7 @@ const App = () => {
           <Route path="/superadmin/subproduct" element={<Subproduct />} />
           <Route path="/superadmin/advertise" element={<Advertise />} />
           <Route path="superadmin/addadmin" element={<AdminSignup />} />
+          <Route path="/superadmin/manageadmin" element={<ManageAdmin />} />
           </Route>
       </Routes>
     </Router>

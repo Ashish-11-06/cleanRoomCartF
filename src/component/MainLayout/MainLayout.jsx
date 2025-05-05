@@ -77,6 +77,12 @@ const MainLayout = () => {
       onClick: () => navigate("/superadmin/addadmin"),
     },
     {
+      key: "/superadmin/manageadmin",
+      icon: <UserAddOutlined />,
+      label: "Manage Admins",
+      onClick: () => navigate("/superadmin/manageadmin"),
+    },
+    {
       key: "/superadmin/users",
       icon: <QuestionCircleOutlined />,
       label: "users",

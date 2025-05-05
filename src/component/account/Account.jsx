@@ -8,11 +8,8 @@ const Account = () => {
     // Define menu items with paths
     const menuItems = [
         { name: "Orders", path: "/account/orderHistory" },
-        { name: "Messages", path: "/account/messages" },
         { name: "Addresses", path: "/account/addresses" },
-        { name: "Payment Methods", path: "/account/payment-methods" },
         { name: "Wish Lists", path: "/account/cart" },
-        { name: "Recently Viewed", path: "/account/recently-viewed" },
         { name: "Account Settings", path: "/account/account-settings" }
     ];
 
