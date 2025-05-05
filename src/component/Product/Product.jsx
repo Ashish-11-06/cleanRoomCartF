@@ -399,7 +399,7 @@ const Product = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col span={24} style={{ marginTop: "20px" }}>
+                    <Col span={24} style={{ marginTop: "20px",fontSize: "18px" }}>
                         <div dangerouslySetInnerHTML={{ __html: product.description }} />
                     </Col>
                 </Row>
