@@ -184,7 +184,7 @@ const MainLayout = () => {
               padding: "5px 20px",
             }}
           >
-            {isAuthenticated ? "Welcome, Admin" : "Please Login"}
+            {isAuthenticated ? "Welcome, SuperAdmin" : "Please Login"}
           </div>
           <Space style={{ padding: "10px 20px", marginTop: "16px" }}>
             {isAuthenticated ? (

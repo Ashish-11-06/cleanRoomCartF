@@ -53,10 +53,33 @@ export const CartProvider = ({ children }) => {
 
   const handleRemoveItem = async (record) => {
     try {
+  
+      // 🔁 Start interested-user deletion in background (non-blocking)
+      (async () => {
+        try {
+          const fullCode = record.productCode;
+  
+          const trimmedCode = fullCode.split('-')[0];
+  
+          const res = await axios.get(`${BASE_URL}/api/product/get-id-by-code/${trimmedCode}`);
+  
+          const productId = res.data?.productId;
+          if (productId) {
+            const deleteRes = await axios.delete(`${BASE_URL}/api/interested-users/delete-by-product/${productId}`);
+          } else {
+            console.warn("⚠️ Product ID not found for code:", trimmedCode);
+          }
+        } catch (err) {
+          console.error("❌ Error during InterestedUser deletion flow:", err);
+        }
+      })();
+  
+      // ✅ Original cart item removal (unmodified)
       await axios.delete(`${BASE_URL}/api/cart/remove/${userId}?productCode=${record.productCode}`);
+  
       fetchCartItems(); // Refresh cart after removing
     } catch (error) {
-      console.error("Error removing item:", error);
+      console.error("❌ Error removing item from cart:", error);
     }
   };
 

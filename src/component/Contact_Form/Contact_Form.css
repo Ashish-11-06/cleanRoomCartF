@@ -56,12 +56,17 @@
     border: none;
     width: 160px;
     height: 38px;
+    transition: transform 0.1s ease-in-out;
 }
 
 .submit-button:hover {
     background-color: #40476D !important;
     opacity: 1 !important;
     color: white !important;
+}
+
+.submit-button:active {
+    transform: scale(0.95);
 }
 
 .info-box {
