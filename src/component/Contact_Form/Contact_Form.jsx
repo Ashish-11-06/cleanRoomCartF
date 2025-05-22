@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Typography, message } from "antd";
 import axios from "axios";
+import emailjs from "@emailjs/browser"; // 👈 Added this
 import "./Contact_Form.css";
 import { BASE_URL } from "../../API/BaseURL";
 import {
@@ -19,10 +20,20 @@ const ContactForm = () => {
 
   const onFinish = async (values) => {
     try {
+      // 1. Submit to your backend
       const response = await axios.post(`${BASE_URL}/api/contact/submit`, values);
       message.success(response.data.message);
+
+      // 2. Send email via EmailJS
+      await emailjs.send(
+        "service_2hwed5h",     // Replace with your EmailJS service ID
+        "template_uipnvif",    // Replace with your EmailJS template ID
+        values,
+        "dCCv41lH1DiwGFekF"      // Replace with your EmailJS public key (user ID)
+      );
     } catch (error) {
-      message.error("Failed to submit query. Please try again.");
+      console.error(error);
+      message.error("Failed to submit query or send email. Please try again.");
     }
   };
 

@@ -144,6 +144,9 @@ const App = () => {
           <Route path="/admin/product" element={<AddProduct />} />
           <Route path="/admin/orders" element={<Orders />} />
           <Route path="/admin/subproduct" element={<Subproduct />} />
+          <Route path="/admin/advertise" element={<Advertise />} />
+          <Route path="/admin/inquiries" element={<Inquiry />} />
+          <Route path="/admin/interested" element={<InterestedUsers />} />
         </Route>
 
         {/* Superadmin Routes */}

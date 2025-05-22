@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Input, Button, Typography, message, AutoComplete } from "antd";
 import axios from "axios";
+import emailjs from "@emailjs/browser"; // <-- Added for EmailJS
 import "./QuoteForm.css";
 import { BASE_URL } from "../../API/BaseURL";
 
@@ -38,6 +39,16 @@ const QuoteForm = () => {
       setLoading(true);
       const response = await axios.post(`${BASE_URL}/api/quote/submit`, payload);
       message.success(response.data.message || "Quote submitted successfully!");
+
+      // EmailJS integration (added as per your request)
+      await emailjs.send(
+        "service_2hwed5h",     // <-- Your EmailJS service ID
+        "template_bkxityn",     // <-- Your EmailJS template ID
+        payload,
+        "dCCv41lH1DiwGFekF"      // <-- Your EmailJS public key (user ID)
+      );
+      
+
       form.resetFields();
       setSelectedProduct("");
     } catch (error) {
@@ -98,7 +109,7 @@ const QuoteForm = () => {
             name="fullName"
             label="Full Name"
             rules={[{ required: true, message: "Please enter your full name" }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input placeholder="Enter your full name" />
           </Form.Item>
@@ -107,7 +118,7 @@ const QuoteForm = () => {
             name="product"
             label="Product Interested"
             rules={[{ required: true, message: "Please select a product" }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <AutoComplete
               options={productSuggestions}
@@ -125,7 +136,7 @@ const QuoteForm = () => {
                 : "Description of Requirement"
             }
             rules={[{ required: true, message: "Please describe your requirement" }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input.TextArea
               rows={4}
@@ -141,7 +152,7 @@ const QuoteForm = () => {
             name="email"
             label="Email Address"
             rules={[{ required: true, type: 'email' }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input placeholder="Enter your email address" />
           </Form.Item>
@@ -150,7 +161,7 @@ const QuoteForm = () => {
             name="confirmEmail"
             label="Confirm Email Address"
             rules={[{ required: true, type: 'email' }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input placeholder="Re-enter your email address" />
           </Form.Item>
@@ -162,7 +173,7 @@ const QuoteForm = () => {
               { required: true, message: "Please enter your phone number" },
               { pattern: /^[0-9]{10}$/, message: "Phone number must be exactly 10 digits" },
             ]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input placeholder="Enter your phone number" />
           </Form.Item>
@@ -171,7 +182,7 @@ const QuoteForm = () => {
             name="companyName"
             label="Company Name"
             rules={[{ required: true, message: "Please enter your company name" }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input placeholder="Enter your company name" />
           </Form.Item>
@@ -180,7 +191,7 @@ const QuoteForm = () => {
             name="address"
             label="Address"
             rules={[{ required: true, message: "Please enter your address" }]}
-            style={{ marginBottom: '-35px' }} // Reduced margin
+            style={{ marginBottom: '-35px' }}
           >
             <Input.TextArea rows={2} placeholder="Enter your company or delivery address" />
           </Form.Item>

@@ -9,6 +9,10 @@ import {
   FolderOpenOutlined,
   ShoppingOutlined,
   BranchesOutlined,
+    TagOutlined,
+  QuestionCircleOutlined,
+  StarOutlined,
+
 } from "@ant-design/icons";
 import { useNavigate, Outlet, useLocation } from "react-router-dom";
 
@@ -59,6 +63,30 @@ const MainLayout1 = () => {
       label: "Subproduct",
       onClick: () => navigate("/admin/subproduct"),
     },
+    {
+      key: "/admin/advertise",
+      icon: <TagOutlined />,
+      label: "Advertisement",
+      onClick: () => navigate("/admin/advertise"),
+    },
+    {
+      key: "/admin/inquiries",
+      icon: <QuestionCircleOutlined />,
+      label: "Inquiries",
+      onClick: () => navigate("/admin/inquiries"),
+    },
+    {
+      key: "/admin/interested",
+      icon: <StarOutlined />,
+      label: "Interested Users",
+      onClick: () => navigate("/admin/interested"),
+    },
+    {
+          key: "/admin/orders",
+          icon: <ShoppingCartOutlined />,
+          label: "Orders",
+          onClick: () => navigate("/admin/orders"),
+        }
   ];
 
   return (

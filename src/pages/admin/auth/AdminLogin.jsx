@@ -14,7 +14,7 @@ const AdminLogin = () => {
     setLoading(true);
     try {
       if (role === 'superadmin') {
-        if (values.email === 'super@gmail.com' && values.password === 'super') {
+        if (values.email === 'Info@cleanroomcart.in' && values.password === 'crct@#123') {
           localStorage.setItem('adminToken', 'superadmin-token');
           localStorage.setItem('role', 'superadmin');
           localStorage.setItem('adminName', 'Super Admin');
