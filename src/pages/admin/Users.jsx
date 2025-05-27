@@ -25,7 +25,7 @@ const Users = () => {
         setFilteredUsers(response.data); // Initialize filtered users with all users
       } catch (err) {
         console.error('Error fetching consumers:', err);
-        setError('Failed to load users. Please try again later.');
+        setError('Currently no any user registered.');
       } finally {
         setLoading(false);
       }

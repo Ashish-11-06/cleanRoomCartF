@@ -70,7 +70,7 @@ const Orders = () => {
       }
     } catch (error) {
       console.error("Error fetching orders or consumers:", error);
-      message.error('Failed to fetch orders');
+      message.error('No any orders now');
     } finally {
       setLoading(false);
     }
