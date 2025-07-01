@@ -279,7 +279,7 @@ const SubcategoryPage = () => {
                             <Button key="cancel" onClick={() => setIsFilterModalVisible(false)}>
                                 Cancel
                             </Button>,
-                            <Button key="apply" type="primary" onClick={applyFilters} style={{borderRadius: '0px'}}>
+                            <Button key="apply" type="primary" onClick={applyFilters} style={{ borderRadius: '0px' }}>
                                 Apply
                             </Button>,
                         ]}
@@ -292,7 +292,7 @@ const SubcategoryPage = () => {
                                         <Slider
                                             range
                                             min={0}
-                                            max={1000}
+                                            max={100000}
                                             value={priceRange}
                                             onChange={setPriceRange}
                                         />
