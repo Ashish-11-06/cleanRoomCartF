@@ -33,7 +33,7 @@ const Footer = () => {
           <hr />
           <p>
             Address: A-302, Binawat Majestic,<br /> Sasane Nagar Rd., <br />Haveli, Hadapsar,<br /> Pune-411028, Maharashtra <br />
-            Email: <a href="mailto:info@cleanroomcart.com">info@cleanroomcart.com</a>
+            Email: <a href="mailto:info@cleanroomcart.in">info@cleanroomcart.in</a>
           </p>
         </div>
 

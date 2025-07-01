@@ -137,6 +137,7 @@ const ReviewProduct = ({ productId }) => {
             textDecoration: "underline",
             fontWeight: "600",
             marginTop: "-16px",
+            marginLeft: "64px",
             fontSize: "16px",
           }}
           onClick={showModal}
@@ -223,20 +224,20 @@ const ReviewProduct = ({ productId }) => {
       </Modal>
 
       <span
-  onClick={showReviews}
-  style={{
-    color: "#40476D",
-    textDecoration: "underline",
-    cursor: "pointer",
-    fontWeight: "600",
-    userSelect: "none",
-    fontSize: "16px",
-    marginLeft: "155px",
-    marginTop: "-50px",
-  }}
->
-  See All Reviews
-</span>
+        onClick={showReviews}
+        style={{
+          color: "#40476D",
+          textDecoration: "underline",
+          cursor: "pointer",
+          fontWeight: "600",
+          userSelect: "none",
+          fontSize: "16px",
+          marginLeft: "155px",
+          marginTop: "-50px",
+        }}
+      >
+        See All Reviews
+      </span>
 
 
       {/* Review List Modal */}

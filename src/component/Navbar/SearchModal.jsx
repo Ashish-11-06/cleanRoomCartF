@@ -68,100 +68,123 @@ const SearchModal = ({ searchQuery, visible, onCancel }) => {
         navigate(`/product/${productId}`);
     };
 
-   const handleOutsideClick = (e) => {
-       if (e.target.classList.contains('ant-modal')) {
-           onCancel();
-       }
-   };
+    const handleOutsideClick = (e) => {
+        if (e.target.classList.contains('ant-modal')) {
+            onCancel();
+        }
+    };
 
-   return (
-       <Modal
-           open={visible}
-           footer={null}
-           width={900}
-           centered
-           onCancel={onCancel}
-           maskClosable={true}
-           onMouseDown={handleOutsideClick}
-       >
-           {loading ? (
-               <Spin size="large" style={{ display: "block", margin: "20px auto" }} />
-           ) : results.length === 0 ? (
-               <Empty description="No products found" />
-           ) : (
-               <Row gutter={[16, 16]} style={{ height: "400px", overflowY: "auto" }}>
-                   <Col xs={6} style={{ borderRight: "1px solid #ddd", paddingRight: "10px" }}>
-                       <h4 style={{ marginBottom: "10px" }}>Categories</h4>
-                       <List
-                           size="small"
-                           bordered
-                           dataSource={Object.keys(categories)}
-                           renderItem={(categoryId) => (
-                               <List.Item
-                                   style={{
-                                       cursor: "pointer",
-                                       backgroundColor: "#f9f9f9",
-                                       transition: "all 0.3s",
-                                   }}
-                                   onClick={() => handleCategoryClick(categoryId)}
-                                   onMouseEnter={(e) => (e.target.style.background = "#e0e0e0")}
-                                   onMouseLeave={(e) => (e.target.style.background = "#f9f9f9")}
-                               >
-                                   {categories[categoryId] || "Unknown Category"}
-                               </List.Item>
-                           )}
-                       />
-                   </Col>
+    return (
+        <Modal
+            open={visible}
+            footer={null}
+            width={900}
+            centered
+            onCancel={onCancel}
+            maskClosable={true}
+            onMouseDown={handleOutsideClick}
+        >
+            {loading ? (
+                <Spin size="large" style={{ display: "block", margin: "20px auto" }} />
+            ) : results.length === 0 ? (
+                <Empty description="No products found" />
+            ) : (
+                <Row gutter={[16, 16]} style={{ height: "400px", overflowY: "auto" }}>
+                    <Col xs={6} style={{ borderRight: "1px solid #ddd", paddingRight: "10px" }}>
+                        <h4 style={{ marginBottom: "10px" }}>Categories</h4>
+                        <List
+                            size="small"
+                            bordered
+                            dataSource={Object.keys(categories)}
+                            renderItem={(categoryId) => (
+                                <List.Item
+                                    style={{
+                                        cursor: "pointer",
+                                        backgroundColor: "#f9f9f9",
+                                        transition: "all 0.3s",
+                                    }}
+                                    onClick={() => handleCategoryClick(categoryId)}
+                                    onMouseEnter={(e) => (e.target.style.background = "#e0e0e0")}
+                                    onMouseLeave={(e) => (e.target.style.background = "#f9f9f9")}
+                                >
+                                    {categories[categoryId] || "Unknown Category"}
+                                </List.Item>
+                            )}
+                        />
+                    </Col>
 
-                   <Col xs={18}>
-                       <Row gutter={[8, 8]}>
-                           {results.map((product) => (
-                               <Col key={product._id} xs={24} sm={12} md={8}>
-                                   <Card
-                                       hoverable
-                                       onClick={() => handleProductClick(product._id)}
-                                       size="small"
-                                       style={{
-                                           height: "200px",
-                                           display: "flex",
-                                           flexDirection: "column",
-                                           textAlign: "center",
-                                           padding: "5px",
-                                       }}
-                                   >
-                                       <div
-                                           style={{
-                                               flex: "7",
-                                               display: "flex",
-                                               alignItems: "center",
-                                               justifyContent: "center",
-                                               overflow: "hidden",
-                                               backgroundColor: "#f8f8f8",
-                                           }}
-                                       >
-                                           <img
-                                               alt={product.productName}
-                                               src={product.image ? `${BASE_URL}${product.image}` : "/uploads/default-image.png"}
-                                               style={{
-                                                   width: "100%",
-                                                   maxHeight: "100%",
-                                                   objectFit: 'contain',
-                                               }}
-                                           />
-                                       </div>
-                                       <div style={{ flex:"3", padding:"8px"}}>
-                                           <h4 style={{ fontSize:"14px", marginBottom:"5px"}}>{product.productName}</h4>
-                                           
-                                       </div>
-                                   </Card>
-                               </Col>
-                           ))}
-                       </Row>
-                   </Col>
-               </Row>
-           )}
-       </Modal>
-   );
+                    <Col xs={18}>
+                        <Row gutter={[8, 8]}>
+                            {results.map((product) => (
+                                <Col key={product._id} xs={24} sm={12} md={8}>
+                                    <Card
+                                        hoverable
+                                        onClick={() => handleProductClick(product._id)}
+                                        size="small"
+                                        style={{
+                                            height: "220px", // Slightly taller for balanced layout
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            textAlign: "center",
+                                            padding: "5px",
+                                        }}
+                                    >
+                                        <div
+                                            style={{
+                                                flex: "7",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                overflow: "hidden",
+                                                backgroundColor: "#f8f8f8",
+                                                height: "140px", // Fixed image area height
+                                            }}
+                                        >
+                                            <img
+                                                alt={product.productName}
+                                                src={product.image ? `${BASE_URL}${product.image}` : "/uploads/default-image.png"}
+                                                style={{
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    objectFit: "contain",
+                                                }}
+                                            />
+                                        </div>
+                                        <div
+                                            style={{
+                                                flex: "3",
+                                                padding: "8px",
+                                                height: "50px", // Fixed name area height
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                overflow: "hidden",
+                                            }}
+                                        >
+                                            <h4
+                                                style={{
+                                                    fontSize: "14px",
+                                                    marginBottom: 0,
+                                                    whiteSpace: "nowrap",
+                                                    overflow: "hidden",
+                                                    textOverflow: "ellipsis",
+                                                    maxWidth: "100%",
+                                                }}
+                                                title={product.productName} // Tooltip for full name
+                                            >
+                                                {product.productName}
+                                            </h4>
+                                        </div>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
+                    </Col>
+
+                </Row>
+            )}
+        </Modal>
+    );
 };
 
 export default SearchModal;

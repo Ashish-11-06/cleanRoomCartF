@@ -107,8 +107,8 @@ const ContactForm = () => {
       <div className="info-section">
         <div className="info-box">
           <h3>Contact Details</h3>
-          <p><MailOutlined className="icon" /> info@cleanroomcart.com</p>
-          <p><PhoneOutlined className="icon" /> +91 9876543210</p>
+          <p><MailOutlined className="icon" /> info@cleanroomcart.in</p>
+          <p><PhoneOutlined className="icon" /> +919598578730</p>
         </div>
 
         <div className="info-box">
