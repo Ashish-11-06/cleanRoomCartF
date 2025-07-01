@@ -78,7 +78,7 @@ const AdminLogin = () => {
           layout="vertical"
           style={{ marginTop: 10 }}
         >
-          <Form.Item style={{ textAlign: 'center' , padding: 15}}>
+          <Form.Item style={{ textAlign: 'center', padding: 15 }}>
             <Radio.Group onChange={(e) => setRole(e.target.value)} value={role}>
               <Radio value="admin">Admin</Radio>
               <Radio value="superadmin">Super Admin</Radio>
@@ -92,7 +92,7 @@ const AdminLogin = () => {
               { required: true, message: 'Please input your email!' },
               { type: 'email', message: 'Enter a valid email!' }
             ]}
-            style={{ 
+            style={{
               marginBottom: '7px',
               marginLeft: '20px',
               marginRight: '20px',
@@ -106,7 +106,7 @@ const AdminLogin = () => {
             name="password"
             label="Password"
             rules={[{ required: true, message: 'Please input your password!' }]}
-            style={{ 
+            style={{
               marginBottom: '7px',
               marginLeft: '20px',
               marginRight: '20px',

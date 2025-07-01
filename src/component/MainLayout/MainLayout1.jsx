@@ -42,7 +42,7 @@ const MainLayout1 = () => {
     {
       key: "/admin/category",
       icon: <AppstoreOutlined />,
-      label: "Category",
+      label: "Categories",
       onClick: () => navigate("/admin/category"),
     },
     {
@@ -54,13 +54,13 @@ const MainLayout1 = () => {
     {
       key: "/admin/product",
       icon: <ShoppingOutlined />,
-      label: "Product",
+      label: "Products",
       onClick: () => navigate("/admin/product"),
     },
     {
       key: "/admin/subproduct",
       icon: <BranchesOutlined />,
-      label: "Subproduct",
+      label: "Subproducts",
       onClick: () => navigate("/admin/subproduct"),
     },
     {

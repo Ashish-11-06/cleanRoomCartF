@@ -120,3 +120,19 @@ Navbar.css .navbar {
 .navbar-links span {
     color: #ddd;
 }
+
+@media (max-width: 768px) {
+    .navbar-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-questions {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    #search-input {
+        width: 100% !important;
+        min-width: 0;
+        max-width: 100%;
+    }
+}

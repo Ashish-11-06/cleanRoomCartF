@@ -1,7 +1,15 @@
+/* Import Poppins in your index.html (recommended) */
+
 body {
-    /* font-family: Arial, sans-serif; */
-    font-family: "Roboto", sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     background-color: #e4f6ec;
     margin: 0;
     padding: 0;
+}
+
+
+/* Ensure all elements inherit the font */
+
+body * {
+    font-family: 'Poppins', sans-serif !important;
 }

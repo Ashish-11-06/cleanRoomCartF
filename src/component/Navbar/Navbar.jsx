@@ -205,35 +205,35 @@ const Navbar = () => {
                 </Link>
 
                 <div style={{ display: "flex", alignItems: "center", marginRight: "20px" }}>
-    <Input
-        id="search-input"
-        type="text"
-        placeholder="#𝘴𝘦𝘢𝘳𝘤𝘩 𝘱𝘳𝘰𝘥𝘶𝘤𝘵𝘴 𝘩𝘦𝘳𝘦"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        style={{
-            width: "450px", // Increased by 100px
-            height: "40px",
-            padding: "5px",
-            color: "black",
-        }}
-        ref={searchInputRef}
-        prefix={<SearchOutlined style={{ color: "#40476D", fontSize: 18 }} />}
-    />
-    <style>
-        {`
+                    <Input
+                        id="search-input"
+                        type="text"
+                        placeholder="#𝘴𝘦𝘢𝘳𝘤𝘩 𝘱𝘳𝘰𝘥𝘶𝘤𝘵𝘴 𝘩𝘦𝘳𝘦"
+                        value={searchTerm}
+                        onChange={handleSearchChange}
+                        style={{
+                            width: "450px", // Increased by 100px
+                            height: "40px",
+                            padding: "5px",
+                            color: "black",
+                        }}
+                        ref={searchInputRef}
+                        prefix={<SearchOutlined style={{ color: "#40476D", fontSize: 18 }} />}
+                    />
+                    <style>
+                        {`
           #search-input::placeholder {
             color: black;
             opacity: 1;
           }
         `}
-    </style>
-</div>
+                    </style>
+                </div>
 
                 <div className="navbar-questions">
-                    <PhoneOutlined /> <span>Talk to Us ?  Call 123-456-7890 </span>
+                    <PhoneOutlined /> <span>Talk to Us ?  Call +919598578730 </span>
                     <a href="mailto:info@cleanroomworld.com" className="email-link">
-                        <MailOutlined /> info@cleanroomcart.com
+                        <MailOutlined /> info@cleanroomcart.in
                     </a>
                 </div>
             </Header>

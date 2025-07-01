@@ -43,7 +43,7 @@ const MainLayout = () => {
     {
       key: "/superadmin/category",
       icon: <AppstoreOutlined />,
-      label: "Category",
+      label: "Categories",
       onClick: () => navigate("/superadmin/category"),
     },
     {
@@ -55,13 +55,13 @@ const MainLayout = () => {
     {
       key: "/superadmin/product",
       icon: <ShoppingOutlined />,
-      label: "Product",
+      label: "Products",
       onClick: () => navigate("/superadmin/product"),
     },
     {
       key: "/superadmin/subproduct",
       icon: <ThunderboltOutlined />,
-      label: "Subproduct",
+      label: "Subproducts",
       onClick: () => navigate("/superadmin/subproduct"),
     },
     {
@@ -85,7 +85,7 @@ const MainLayout = () => {
     {
       key: "/superadmin/users",
       icon: <QuestionCircleOutlined />,
-      label: "users",
+      label: "Users",
       onClick: () => navigate("/superadmin/users"),
     },
     {
