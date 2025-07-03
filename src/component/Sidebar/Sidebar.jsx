@@ -64,6 +64,20 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
+      <button
+        onClick={() => navigate('/')}
+        style={{
+          padding: '5px 5px',
+          borderRadius: '20px',
+          border: 'none',
+          backgroundColor: '#40476D',
+          color: 'white',
+          fontSize: '14px',
+          cursor: 'pointer'
+        }}
+      >
+        Home
+      </button>
       <h2 className="sidebar-title">Categories</h2>
       <nav className="sidebar-nav">
         {loading ? (

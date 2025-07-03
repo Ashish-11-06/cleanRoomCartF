@@ -95,6 +95,12 @@ const MainLayout = () => {
       onClick: () => navigate("/superadmin/inquiries"),
     },
     {
+      key: "/superadmin/quotes",
+      icon: <QuestionCircleOutlined />,
+      label: "Quote Requests",
+      onClick: () => navigate("/superadmin/quotes"),
+    },
+    {
       key: "/superadmin/interested",
       icon: <StarOutlined />,
       label: "Interested Users",

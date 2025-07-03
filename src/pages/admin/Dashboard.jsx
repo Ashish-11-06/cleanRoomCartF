@@ -3,6 +3,7 @@ import { Card, Typography, Row, Col, Badge } from "antd";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../API/BaseURL";
+import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -12,7 +13,7 @@ const Dashboard = () => {
   const [userCount, setUserCount] = useState(0);
   const [newQueries, setNewQueries] = useState(0);
   const [newUsers, setNewUsers] = useState(0);
-  
+
   // New states for interested users insights
   const [mostFrequentUser, setMostFrequentUser] = useState(null);
   const [mostInterestedProduct, setMostInterestedProduct] = useState(null);
@@ -54,30 +55,30 @@ const Dashboard = () => {
       try {
         const response = await axios.get(`${BASE_URL}/api/admin/get/interested-users`);
         const interestedUsers = response.data;
-    
+
         if (interestedUsers.length > 0) {
           const userCounts = {};
           const productCounts = {};
-    
+
           interestedUsers.forEach((entry) => {
             // Count occurrences of users
             userCounts[entry.userName] = (userCounts[entry.userName] || 0) + 1;
-    
+
             // Convert ObjectId to string for counting
             const productId = entry.productId.toString();
             productCounts[productId] = (productCounts[productId] || 0) + 1;
           });
-    
+
           // Find most frequent user
           const topUser = Object.keys(userCounts).reduce((a, b) =>
             userCounts[a] > userCounts[b] ? a : b
           );
-    
+
           // Find most interested product
           const topProduct = Object.keys(productCounts).reduce((a, b) =>
             productCounts[a] > productCounts[b] ? a : b
           );
-    
+
           setMostFrequentUser({ name: topUser, count: userCounts[topUser] });
           setMostInterestedProduct({ id: topProduct, count: productCounts[topProduct] });
         }
@@ -110,20 +111,23 @@ const Dashboard = () => {
         {/* Total Customer Queries with Notification Badge */}
         <Col span={6}>
           <Badge count={newQueries} offset={[10, 0]} style={{ backgroundColor: "#f5222d" }}>
-            <Card className="dashboard-card"  hoverable>
-              <Title level={4} className="card-title">Total Customer Queries</Title>
-              <Title level={2} className="query-count">{queryCount}</Title>
-            </Card>
+            <Link to="/superadmin/inquiries" style={{ textDecoration: 'none' }}>
+              <Card className="dashboard-card" hoverable>
+                <Title level={4} className="card-title">Total Customer Queries</Title>
+                <Title level={2} className="query-count">{queryCount}</Title>
+              </Card>
+            </Link>
           </Badge>
         </Col>
 
-        {/* Total Users Count with Notification Badge */}
         <Col span={6}>
           <Badge count={newUsers} offset={[10, 0]} style={{ backgroundColor: "#52c41a" }}>
-            <Card className="dashboard-card"  hoverable>
-              <Title level={4} className="card-title">Total Registered Users</Title>
-              <Title level={2} className="user-count">{userCount}</Title>
-            </Card>
+            <Link to="/superadmin/users" style={{ textDecoration: 'none' }}>
+              <Card className="dashboard-card" hoverable>
+                <Title level={4} className="card-title">Total Registered Users</Title>
+                <Title level={2} className="user-count">{userCount}</Title>
+              </Card>
+            </Link>
           </Badge>
         </Col>
 

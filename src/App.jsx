@@ -10,7 +10,7 @@ import Category from "./component/Category/Category";
 import Product from "./component/Product/Product";
 import AdminLogin from "./pages/admin/auth/AdminLogin";
 import AdminSignup from "./pages/admin/AdminSignup";
-import MainLayout from "./component/MainLayout/MainLayout"; 
+import MainLayout from "./component/MainLayout/MainLayout";
 import MainLayout1 from "./component/MainLayout/MainLayout1";// ✅ Admin Layout.
 import Dashboard from "./pages/admin/Dashboard";
 import Users from "./pages/admin/Users";
@@ -36,10 +36,11 @@ import OrderHistory from "./component/account/OrderHistory";
 import Advertise from "./pages/admin/Advertise";
 import QuoteForm from "./component/Quote/QuoteForm";
 import ManageAdmin from "./pages/admin/ManageAdmin";
+import Quotes from "./pages/admin/Quotes";
 
 
 
- // ✅ Import the Subproduct Page
+// ✅ Import the Subproduct Page
 
 // Authentication Protection
 const ProtectedRoute = ({ children, role }) => {
@@ -97,28 +98,28 @@ const App = () => {
         {/* ✅ Consumer Protected Routes (Inside AntdLayout) */}
         {/* <Route element={<ProtectedRoute role="consumer"><AntdLayout /></ProtectedRoute>}> */}
         <Route element={<AntdLayout />}>
-          <Route path="/" element={<Home />} /> 
+          <Route path="/" element={<Home />} />
           <Route path="/category/:id" element={<Category />} />
-          <Route path="/subcategory/:id" element={<SubcategoryPage />} /> 
+          <Route path="/subcategory/:id" element={<SubcategoryPage />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/contact_form" element={<ContactForm />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/quote" element={<QuoteForm/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/quote" element={<QuoteForm />} />
 
 
 
           <Route path="/account" element={<Account />}>
-                    <Route path="account-settings" element={<AccountSettings />} />
-                    <Route path="addresses" element={<AddAddress />} />
-                    <Route path="cart" element={<CartPage />} />
-                    <Route path="orderHistory" element={<OrderHistory />} />
+            <Route path="account-settings" element={<AccountSettings />} />
+            <Route path="addresses" element={<AddAddress />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="orderHistory" element={<OrderHistory />} />
 
 
-                </Route>
+          </Route>
 
           <Route path="/signup" element={<Signup />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
-          <Route path="/reset-password/:token" element={<ResetPassword />}/>
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           {/* <Route path="/signup" element={<Signup/>}/> */}
           {/* ✅ Catch-All Route for Consumer Inside AntdLayout */}
           {/* <Route path="*" element={<Navigate to="/login" />} /> */}
@@ -129,15 +130,15 @@ const App = () => {
 
         <Route path="/checkout" element={<Checkout />} />
 
-          
-          {/* <Route path="/category/:categoryName/:subcategory" element={<ProductList />} /> */}
-          
-          
-          
+
+        {/* <Route path="/category/:categoryName/:subcategory" element={<ProductList />} /> */}
+
+
+
 
         {/* ✅ Admin Protected Routes (Inside MainLayout) */}
-         {/* Admin Routes */}
-         <Route element={<ProtectedRoute role="admin"><MainLayout1 /></ProtectedRoute>}>
+        {/* Admin Routes */}
+        <Route element={<ProtectedRoute role="admin"><MainLayout1 /></ProtectedRoute>}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/category" element={<AddCategory />} />
           <Route path="/admin/subcategory" element={<AddSubcategory />} />
@@ -147,6 +148,10 @@ const App = () => {
           <Route path="/admin/advertise" element={<Advertise />} />
           <Route path="/admin/inquiries" element={<Inquiry />} />
           <Route path="/admin/interested" element={<InterestedUsers />} />
+          <Route path="/admin/users" element={<Users />} />
+          <Route path="/admin/quotes" element={<Quotes />} />
+
+
         </Route>
 
         {/* Superadmin Routes */}
@@ -163,7 +168,8 @@ const App = () => {
           <Route path="/superadmin/advertise" element={<Advertise />} />
           <Route path="superadmin/addadmin" element={<AdminSignup />} />
           <Route path="/superadmin/manageadmin" element={<ManageAdmin />} />
-          </Route>
+          <Route path="/superadmin/quotes" element={<Quotes />} />
+        </Route>
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './signup.css';
-import { message } from 'antd'; // Ensure message is imported
+import { message } from 'antd';
 import { UserAddOutlined } from "@ant-design/icons";
 import { BASE_URL } from "../../../API/BaseURL";
 
@@ -13,6 +13,8 @@ const Signup = () => {
     firstName: '',
     lastName: '',
     phoneNumber: '',
+    company: '',         // <-- Added
+    designation: '',     // <-- Added
     addressLine1: '',
     addressLine2: '',
     city: '',
@@ -20,14 +22,15 @@ const Signup = () => {
     state: '',
     zip: ''
   });
-  const navigate = useNavigate(); // Hook for redirection
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -66,7 +69,7 @@ const Signup = () => {
 
       if (response.ok) {
         message.success('Signup successful! Redirecting to login...');
-        setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
+        setTimeout(() => navigate('/login'), 2000);
       } else {
         message.error(data.message);
       }
@@ -109,6 +112,16 @@ const Signup = () => {
           <label className='label'><span className='label_span'>*</span>Phone Number:</label>
           <input type="text" name="phoneNumber" className='input' value={formData.phoneNumber} onChange={handleChange} required />
         </div>
+        {/* --- Added Company and Designation Fields --- */}
+        <div className='div'>
+          <label className='label'>Company:</label>
+          <input type="text" name="company" className='input' value={formData.company} onChange={handleChange} />
+        </div>
+        <div className='div'>
+          <label className='label'>Designation:</label>
+          <input type="text" name="designation" className='input' value={formData.designation} onChange={handleChange} />
+        </div>
+        {/* --- End of Added Fields --- */}
         <div className='div'>
           <label className='label'><span className='label_span'>*</span>Address Line 1:</label>
           <input type="text" name="addressLine1" className='input' value={formData.addressLine1} onChange={handleChange} required />
@@ -135,7 +148,7 @@ const Signup = () => {
         </div>
         <button className='button' type="submit">Signup</button>
         <p className="custom-text">
-          Already have an account? 
+          Already have an account?
           <Link to="/login"> Log in Here</Link>
         </p>
       </form>

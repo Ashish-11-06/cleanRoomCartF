@@ -9,7 +9,7 @@ import {
   FolderOpenOutlined,
   ShoppingOutlined,
   BranchesOutlined,
-    TagOutlined,
+  TagOutlined,
   QuestionCircleOutlined,
   StarOutlined,
 
@@ -76,17 +76,29 @@ const MainLayout1 = () => {
       onClick: () => navigate("/admin/inquiries"),
     },
     {
+      key: "/admin/quotes",
+      icon: <QuestionCircleOutlined />,
+      label: "Quote Requests",
+      onClick: () => navigate("/admin/quotes"),
+    },
+    {
+      key: "/admin/users",
+      icon: <QuestionCircleOutlined />,
+      label: "Users",
+      onClick: () => navigate("/admin/users"),
+    },
+    {
       key: "/admin/interested",
       icon: <StarOutlined />,
       label: "Interested Users",
       onClick: () => navigate("/admin/interested"),
     },
     {
-          key: "/admin/orders",
-          icon: <ShoppingCartOutlined />,
-          label: "Orders",
-          onClick: () => navigate("/admin/orders"),
-        }
+      key: "/admin/orders",
+      icon: <ShoppingCartOutlined />,
+      label: "Orders",
+      onClick: () => navigate("/admin/orders"),
+    }
   ];
 
   return (

@@ -6,23 +6,35 @@ import { useNavigate } from "react-router-dom";
 
 const InterestedUsers = () => {
   const [users, setUsers] = useState([]);
+  const [consumerMap, setConsumerMap] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchAll = async () => {
       try {
+        // Fetch consumers for email-phone mapping
+        const consumersRes = await axios.get(`${BASE_URL}/api/consumer/list`);
+        const consumers = consumersRes.data;
+        const map = {};
+        consumers.forEach(consumer => {
+          if (consumer.email) {
+            map[consumer.email] = consumer.phoneNumber || "N/A";
+          }
+        });
+        setConsumerMap(map);
+
+        // Fetch interested users
         const response = await axios.get(`${BASE_URL}/api/admin/get/interested-users`);
         const sortedUsers = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
         setUsers(sortedUsers);
       } catch (error) {
-        console.error("Error fetching interested users:", error);
+        console.error("Error fetching interested users or consumers:", error);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchUsers();
+    fetchAll();
   }, []);
 
   const columns = [
@@ -58,16 +70,15 @@ const InterestedUsers = () => {
       key: 'email',
     },
     {
+      title: 'Mobile Number', // <-- Added column
+      key: 'mobileNumber',
+      render: (text, record) => consumerMap[record.email] || "N/A"
+    },
+    {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
-      render: (date) => {
-        if (date) {
-          return new Date(date).toLocaleString(); // Format the date as desired
-        } else {
-          return 'N/A';
-        }
-      },
+      render: (date) => date ? new Date(date).toLocaleString() : 'N/A'
     }
   ];
 
