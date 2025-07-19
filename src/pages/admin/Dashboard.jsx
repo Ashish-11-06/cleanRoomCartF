@@ -13,6 +13,7 @@ const Dashboard = () => {
   const [userCount, setUserCount] = useState(0);
   const [newQueries, setNewQueries] = useState(0);
   const [newUsers, setNewUsers] = useState(0);
+  const [categoryCount, setCategoryCount] = useState(0);
 
   // New states for interested users insights
   const [mostFrequentUser, setMostFrequentUser] = useState(null);
@@ -49,6 +50,27 @@ const Dashboard = () => {
         console.error("Error fetching user count:", error);
       }
     };
+
+
+    const fetchSubcategoryCount = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/subcategory/count`);
+        setSubcategoryCount(response.data.count);
+      } catch (error) {
+        console.error("Error fetching subcategory count:", error);
+      }
+    };
+
+
+    const fetchCategoryCount = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/api/category/get`);
+        setCategoryCount(response.data.length); // ✅ Count from array length
+      } catch (error) {
+        console.error("Error fetching category count:", error);
+      }
+    };
+
 
     // Fetch Interested Users Data
     const fetchInterestedUsers = async () => {
@@ -88,8 +110,10 @@ const Dashboard = () => {
     };
 
     fetchQueryCount();
+
     fetchUserCount();
     fetchInterestedUsers();
+    fetchCategoryCount();
   }, []);
 
   // Function to navigate and reset new count
@@ -109,6 +133,24 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <Row gutter={16}>
         {/* Total Customer Queries with Notification Badge */}
+
+
+        <Col span={6}>
+          <Card className="dashboard-card" hoverable>
+            <Title level={4} className="card-title">Total Categories</Title>
+            <Title level={2} className="category-count">{categoryCount}</Title>
+          </Card>
+        </Col>
+
+
+
+
+
+
+
+
+
+
         <Col span={6}>
           <Badge count={newQueries} offset={[10, 0]} style={{ backgroundColor: "#f5222d" }}>
             <Link to="/superadmin/inquiries" style={{ textDecoration: 'none' }}>
@@ -130,6 +172,13 @@ const Dashboard = () => {
             </Link>
           </Badge>
         </Col>
+
+
+        {/* Total Categories */}
+
+
+
+
 
         {/* Most Frequent User */}
         {/* {mostFrequentUser && (
