@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://cleanroomcart.in/sitemap.xml
+Host: https://cleanroomcart.in
