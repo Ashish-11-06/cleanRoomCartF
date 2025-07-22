@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://cleanroomcart.in/sitemap.xml
+Host: https://cleanroomcart.in

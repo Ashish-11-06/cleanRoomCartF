@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
   <url>
     <loc>https://cleanroomcart.in/</loc>
+    <priority>1.0</priority>
+    <changefreq>daily</changefreq>
   </url>
-  
+
+  <!-- Main Pages -->
   <url>
     <loc>https://cleanroomcart.in/login</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
+
   <url>
     <loc>https://cleanroomcart.in/contact_form</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
+
   <url>
     <loc>https://cleanroomcart.in/quote</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Example Product/Category Pages -->
+  
+
+  
+
 </urlset>
