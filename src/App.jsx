@@ -153,7 +153,7 @@ const App = () => {
 
 
         </Route>
-
+        {/* Superadmin Routes */}
         {/* Superadmin Routes */}
         <Route element={<ProtectedRoute role="superadmin"><MainLayout /></ProtectedRoute>}>
           <Route path="/superadmin/dashboard" element={<Dashboard />} />
